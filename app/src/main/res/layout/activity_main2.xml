@@ -6,6 +6,7 @@
     android:orientation="vertical"
     android:gravity="center_horizontal"
     android:padding="16dp"
+    android:background="@drawable/location"
     tools:context=".MainActivity">
     <TextView
         android:layout_width="wrap_content"
@@ -13,26 +14,29 @@
         android:text="Current Location"
         android:textSize="30sp"
         android:textStyle="bold"
-        android:textColor="#00ee7f"/>
+        android:textColor="#DBE85E"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="32dp">
+        android:layout_marginTop="32dp"
+        android:textStyle="bold">
 
         <TextView
             android:layout_width= "0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:id="@+id/textView"/>
+            android:id="@+id/textView_1"
+            android:textColor="@color/white"/>
 
 
         <TextView
             android:layout_width= "0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:id="@+id/textView2"/>
+            android:id="@+id/textView_2"
+            android:textColor="@color/white"/>
 
     </LinearLayout>
 
@@ -40,7 +44,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="16dp">
+        android:textStyle="bold">
 
 
 
@@ -48,13 +52,15 @@
             android:layout_width= "0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:id="@+id/textView3"/>
+            android:id="@+id/textView_3"
+            android:textColor="@color/white"/>
 
         <TextView
             android:layout_width= "0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:id="@+id/textView4"/>
+            android:id="@+id/textView_4"
+            android:textColor="@color/white"/>
 
     </LinearLayout>
 
@@ -62,7 +68,8 @@
         android:layout_width= "match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:id="@+id/textView5"/>
+        android:id="@+id/textView_5"
+        android:textColor="@color/white"/>
 
 
 </LinearLayout>

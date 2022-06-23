@@ -2,5 +2,5 @@
     <string name="app_name">Location_access</string>
     <string name="next_page">Next Page</string>
     <string name="click_the_button_to_get_current_location">Click the button to get current location.</string>
-    <string name="get_location">Get Location</string>
+    <string name="get_location">Get Current Location</string>
 </resources>
