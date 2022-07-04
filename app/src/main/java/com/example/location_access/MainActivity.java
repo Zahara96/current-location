@@ -18,6 +18,8 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -30,10 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button location_button;
     FusedLocationProviderClient fusedLocationProviderClient;
-
-
-
-
+    private int permission_code =44;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,18 +49,31 @@ public class MainActivity extends AppCompatActivity {
                 if (ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
                     getLocation();
                 } else {
-                    ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 44);
+                    ActivityCompat.requestPermissions(MainActivity.this,new String[] {Manifest.permission.ACCESS_FINE_LOCATION},permission_code);
+
+
+
                 }
             }
         });
 
     }
 
-    /*public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
 
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == permission_code) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Toast.makeText(this, "Location Permission Granted", Toast.LENGTH_SHORT).show();
+                getLocation();
+            } else {
+                Toast.makeText(this, "Location Permission Denied", Toast.LENGTH_SHORT).show();
+            }
+
+        }
     }
-     */
+
 
     @SuppressLint("MissingPermission")
     private void getLocation() {
@@ -94,7 +106,6 @@ public class MainActivity extends AppCompatActivity {
 
                 }
                 else {
-                    //startActivityForResult(new Intent(android.provider.Settings.ACTION_SETTINGS), 0);
                     statusCheck();
 
                 }
@@ -131,6 +142,8 @@ public class MainActivity extends AppCompatActivity {
         final AlertDialog alert = builder.create();
         alert.show();
     }
+
+
 
 
 }
